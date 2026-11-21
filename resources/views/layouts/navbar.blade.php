@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-apotek-dark shadow-sm">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="{{ route{'home') }}" style="color: #FAFFCA;">
+        <a class="navbar-brand fw-bold" href="{{ route('home') }}" style="color: #FAFFCA;">
             <i class="fas fa-clicic-medical me-2"></i>PharmaCare Express
         </a>
 
