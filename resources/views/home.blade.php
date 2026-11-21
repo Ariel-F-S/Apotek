@@ -59,4 +59,79 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
+<div class="mt-5 mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="fw-bold text-apotek-dark mb-0">
+            <i class="fas fa-prescription-bottle-alt me-2 text-apotek-sage"></i>Obat & Vitamin Pilihan
+        </h3>
+        <span class="badge bg-apotek-cream text-apotek-dark border-apotek-sage px-3 py-2 rounded-pill">
+            Tersedia di Apotek
+        </span>
+    </div>
+
+    <div class="row g-4">
+        @forelse ($obatPilihan as $item)
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 bg-white obat-card">
+                    <img src="{{ $item->gambar ?? 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80' }}"
+                         alt="{{ $item->nama_obat }}">
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-apotek-mint text-dark rounded-pill px-3">
+                                {{ $item->kategori->nama_kategori ?? 'Umum' }}
+                            </span>
+                            <small class="text-muted fw-semibold">Stok: {{ $item->stok }} {{ $item->satuan }}</small>
+                        </div>
+
+                        <h5 class="fw-bold text-apotek-dark mb-1">{{ $item->nama_obat }}</h5>
+                        <p class="fw-bold fs-5 text-success mb-3">
+                            Rp{{ number_format($item->harga, 0, ',', '.') }}
+                        </p>
+
+                        <button type="button"
+                                class="btn btn-apotek-primary rounded-pill mt-auto w-100 fw-semibold"
+                                data-bs-toggle="modal"
+                                data-bs-target="#detailObatModal{{ $item->id }}">
+                            <i class="fas fa-info-circle me-1"></i> Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="detailObatModal{{ $item->id }}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content rounded-4 border-0 shadow">
+                        <div class="modal-header bg-apotek-dark text-apotek-cream border-0 rounded-top-4">
+                            <h5 class="modal-title fw-bold">{{ $item->nama_obat }}</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body p-4">
+                            <img src="{{ $item->gambar ?? 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80' }}"
+                                 alt="{{ $item->nama_obat }}" class="img-fluid rounded-3 mb-3 w-100" style="height: 200px; object-fit: cover;">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-apotek-cream text-apotek-dark border-apotek-sage">
+                                    {{ $item->kategori->nama_kategori ?? 'Umum' }}
+                                </span>
+                                <span class="badge bg-apotek-mint text-dark">
+                                    Stok: {{ $item->stok }} {{ $item->satuan }}
+                                </span>
+                            </div>
+                            <h4 class="fw-bold text-success mb-2">Rp{{ number_format($item->harga, 0, ',', '.') }}</h4>
+                            <p class="text-secondary mb-0">{{ $item->deskripsi ?? 'Obat resmi terdaftar dan diawasi oleh Apoteker PharmaCare Express.' }}</p>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <button type="button" class="btn btn-apotek-accent rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div class="col-12">
+                <div class="alert bg-white border-apotek-mint text-center text-muted py-4 rounded-4">
+                    Belum ada data obat di database. Silakan login sebagai <strong>Apoteker</strong> untuk menambahkan data obat.
+                </div>
+            </div>
+        @endforelse
+    </div>
+</div>
 @endsection

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Obat extends Model
 {
     protected $fillable = [
-        'kategori_id', 'kode_obat', 'nama_obat', 'satuan', 'stok', 'harga', 'tanggal_kadaluarsa'
+    'kategori_id', 'kode_obat', 'nama_obat', 'satuan', 'stok', 'harga', 'gambar', 'deskripsi', 'tanggal_kadaluarsa'
     ];
 
     public function kategori()
