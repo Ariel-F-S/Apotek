@@ -13,7 +13,7 @@ class LaporanController extends Controller
         $totalTransaksi = Transaksi::count();
         $totalJenisObat = Obat::count();
         $stokMenipis = Obat::where('stok', '<=', 5)->get();
-        $transaksis = Transaksi::with(['obat', 'user'])->latest()->get();
+        $transaksis = Transaksi::with(['details.obat', 'user'])->latest()->get();
 
         return view('laporan.index', compact(
             'totalPendapatan',

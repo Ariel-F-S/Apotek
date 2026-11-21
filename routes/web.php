@@ -18,9 +18,11 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Khusus Role: Apoteker (Kelola Data Obat & Kategori Obat)
+// Khusus Role: Apoteker (Kelola Data Obat & Kategori Obat)
 Route::middleware(['auth', 'apoteker'])->group(function () {
     Route::get('/obat', [ObatController::class, 'index'])->name('obat.index');
     Route::post('/obat', [ObatController::class, 'store'])->name('obat.store');
+    Route::put('/obat/{id}', [ObatController::class, 'update'])->name('obat.update');
     Route::delete('/obat/{id}', [ObatController::class, 'destroy'])->name('obat.destroy');
 
     Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
@@ -37,4 +39,11 @@ Route::middleware(['auth', 'kasir'])->group(function () {
 // Khusus Role: Pimpinan (Laporan Penjualan & Stok)
 Route::middleware(['auth', 'pimpinan'])->group(function () {
     Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+});
+
+// Khusus Role: Kasir (Transaksi Penjualan & Cetak Nota)
+Route::middleware(['auth', 'kasir'])->group(function () {
+    Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
+    Route::post('/transaksi', [TransaksiController::class, 'store'])->name('transaksi.store');
+    Route::get('/transaksi/{id}/nota', [TransaksiController::class, 'nota'])->name('transaksi.nota');
 });

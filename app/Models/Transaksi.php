@@ -2,14 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Obat;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Transaksi extends Model
 {
     protected $fillable = [
-        'kode_transaksi', 'user_id', 'obat_id', 'jumlah', 'total_harga', 'tanggal_transaksi'
+        'kode_transaksi', 'user_id', 'total_harga', 'uang_bayar', 'kembalian', 'tanggal_transaksi'
     ];
 
     public function user()
@@ -17,8 +15,8 @@ class Transaksi extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function obat()
+    public function details()
     {
-        return $this->belongsTo(Obat::class);
+        return $this->hasMany(DetailTransaksi::class);
     }
 }

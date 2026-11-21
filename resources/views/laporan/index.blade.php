@@ -47,8 +47,7 @@
                         <th>No</th>
                         <th>Kode Transaksi</th>
                         <th>Tanggal</th>
-                        <th>Nama Obat</th>
-                        <th>Jumlah</th>
+                        <th>Daftar Obat & Qty</th>
                         <th>Total</th>
                         <th>Kasir Bertugas</th>
                     </tr>
@@ -59,14 +58,19 @@
                             <td>{{ $i + 1 }}</td>
                             <td class="fw-bold">{{ $trx->kode_transaksi }}</td>
                             <td>{{ $trx->tanggal_transaksi }}</td>
-                            <td>{{ $trx->obat->nama_obat ?? '-' }}</td>
-                            <td>{{ $trx->jumlah }}</td>
+                            <td>
+                                <ul class="mb-0 ps-3 small">
+                                    @foreach($trx->details as $det)
+                                        <li>{{ $det->obat->nama_obat ?? 'Obat' }} ({{ $det->jumlah }}x)</li>
+                                    @endforeach
+                                </ul>
+                            </td>
                             <td class="fw-bold text-apotek-dark">Rp {{ number_format($trx->total_harga, 0, ',', '.') }}</td>
                             <td>{{ $trx->user->name ?? '-' }}</td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="text-center text-muted py-4">Belum ada data penjualan yang terekam.</td>
+                            <td colspan="6" class="text-center text-muted py-4">Belum ada data penjualan yang terekam.</td>
                         </tr>
                     @endforelse
                 </tbody>

@@ -12,10 +12,10 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $fillable = [
-        'name',
-        'usertype', // <-- Wajib ditambahkan agar bisa disimpan saat register/seeder
-        'email',
-        'password',
+    'name',
+    'usertype',
+    'email',
+    'password',
     ];
 
     protected $hidden = [
