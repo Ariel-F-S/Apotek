@@ -1,9 +1,209 @@
-@import 'tailwindcss';
+:root{
+    --apotek-dark: #5A827E;
+    --apotek-sage: #84AE92;
+    --apotek-mint: #B9D4AA;
+    --apotek-cream: #FAFFCA;
+}
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+body{
+    background-color: #F7F9EF;
+    color: #2c3e3c;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+.bg-apotek-dark{
+    background-color: var(--apotek-dark) !important;
+}
+
+.bg-apotek-sage{
+    background-color: var(--apotek-sage) !important;
+}
+
+.bg-apotek-mint{
+    background-color: var(--apotek-mint) !important;
+}
+
+.bg-apotek-cream{
+    background-color: var(--apotek-cream) !important;
+}
+
+.text-apotek-dark{
+    color: var(--apotek-dark) !important;
+}
+
+.text-apotek-sage{
+    color: var(--apotek-sage) !important;
+}
+
+.text-apotek-mint{
+    color: var(--apotek-mint) !important;
+}
+
+.text-apotek-cream{
+    color: var(--apotek-cream) !important;
+}
+
+.border-apotek-mint{
+    border: 1px solid var(--apotek-mint) !important;
+}
+
+.border-apotek-sage{
+    border: 1px solid var(--apotek-sage) !important;
+}
+
+.btn-apotek-primary{
+    background-color: var(--apotek-dark);
+    border-color: var(--apotek-dark);
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.btn-apotek-primary:hover{
+    background-color: #486966;
+    border-color: #486966;
+    color: var(--apotek-cream);
+}
+
+.btn-apotek-accent{
+    background-color: var(--apotek-cream);
+    border: 2px solid var(--apotek-dark);
+    color: var(--apotek-dark);
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.btn-apotek-accent:hover {
+    background-color: var(--apotek-mint);
+    color: #1f3331;
+}
+
+.hero-card{
+    border-radius: 22px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid var(--apotek-mint);
+    box-shadow: 0 12px 30px rgba(90, 130, 126, 0.12);
+    position: relative;
+    min-height: 430px;
+}
+
+.hero-left{
+    padding: 3rem 2.5rem;
+    z-index: 2;
+    position: relative;
+}
+
+.hero-brand{
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+}
+
+.hero-title{
+    font-weight: 900;
+    font-size: 2.25rem;
+    line-height: 1.15;
+    color: var(--apotek-dark);
+    text-transform: uppercase;
+}
+
+.hero-right-wrapper {
+    position: relative;
+    min-height: 430px;
+    background-color: var(--apotek-mint);
+    clip-path: ellipse(95% 100% at 95% 50%);
+    padding-left: 18px;
+}
+
+.hero-right {
+    position: relative;
+    min-height: 430px;
+    background: linear-gradient(135deg, var(--apotek-sage) 0%, var(--apotek-dark) 100%);
+    clip-path: ellipse(94% 100% at 94% 50%);
+}
+
+.hero-right img.main-photo {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+.mini-gallery {
+    position: absolute;
+    bottom: 22px;
+    right: 25px;
+    left: 25px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    z-index: 3;
+}
+
+.mini-item {
+    width: 78px;
+    height: 78px;
+    background: #ffffff;
+    border: 2px solid var(--apotek-cream);
+    border-radius: 16px;
+    padding: 8px;
+    box-shadow: 0 6px 15px rgba(90, 130, 126, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.mini-item:hover {
+    transform: translateY(-5px);
+    background-color: var(--apotek-cream);
+}
+
+.mini-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 44px;
+    height: 44px;
+    background-color: var(--apotek-dark);
+    border: 2px solid var(--apotek-cream);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.95;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: var(--apotek-sage);
+}
+
+.carousel-control-prev {
+    left: -16px;
+}
+
+.carousel-control-next {
+    right: -16px;
+}
+
+@media (max-width: 991.98px) {
+    .hero-right-wrapper,
+    .hero-right {
+        clip-path: none;
+        padding-left: 0;
+        min-height: 300px;
+    }
+
+    .hero-right img.main-photo {
+        height: 300px;
+    }
+
+    .mini-gallery {
+        justify-content: center;
+    }
 }
