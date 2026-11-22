@@ -8,7 +8,7 @@
     <div class="col-lg-5">
         <div class="card border-apotek-mint shadow-sm rounded-4">
             <div class="card-header bg-apotek-dark text-apotek-cream fw-bold py-3 rounded-top-4">
-                <i class="fas fa-cash-register me-2"></i> Kasir Penjualan (Multi-Item)
+                <i class="fas fa-cash-register me-2"></i> Kasir Penjualan
             </div>
             <div class="card-body bg-white rounded-bottom-4 p-4">
                 {{-- Pilih Obat untuk dimasukkan ke keranjang --}}
