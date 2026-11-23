@@ -17,7 +17,30 @@
             <div class="col-lg-6 col-md-8">
                 <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
                     <div class="card-header bg-apotek-dark text-center py-4 border-0">
-                        <i class="fas fa-clinic-medical fa-2x text-apotek-cream mb-2"></i>
+
+                        <div class="text-center mb-4">
+
+                            <img
+                                src="{{ asset('logo.png') }}"
+                                alt="Logo PharmaCare"
+                                style="
+                                    width: 100px;
+                                    height: 100px;
+                                    object-fit: contain;
+                                    display: block;
+                                    margin: 0 auto 12px auto;
+                                "
+                            >
+
+                            <span
+                                class="fw-bold fs-4 text-apotek-cream"
+                                style="display: block;"
+                            >
+                                PharmaCare
+                            </span>
+
+                        </div>
+
                         <h4 class="fw-bold text-apotek-cream mb-0">Registrasi Akun Apotek</h4>
                         <small class="text-white-50">PharmaCare Express</small>
                     </div>

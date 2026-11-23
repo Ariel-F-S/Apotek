@@ -19,23 +19,36 @@
                     <div class="row g-0">
                         <div class="col-md-5 d-none d-md-flex flex-column justify-content-between p-4 text-white bg-apotek-dark">
                             <div>
-                                <div class="d-flex align-items-center gap-2 mb-3">
-                                    <i class="fas fa-clinic-medical fa-2x text-apotek-cream"></i>
-                                    <span class="fw-bold fs-5 text-apotek-cream">PharmaCare</span>
-                                </div>
+                                
+                                    <div class="text-center mb-4">
+
+                                        <img
+                                            src="{{ asset('logo.png') }}"
+                                            alt="Logo PharmaCare"
+                                            style="
+                                                width: 100px;
+                                                height: 100px;
+                                                object-fit: contain;
+                                                display: block;
+                                                margin: 0 auto 12px auto;
+                                            "
+                                        >
+
+                                        <span
+                                            class="fw-bold fs-4 text-apotek-cream"
+                                            style="display: block;"
+                                        >
+                                            PharmaCare
+                                        </span>
+
+                                    </div>
+
                                 <h4 class="fw-bold mt-4">Sistem Informasi Manajemen Apotek</h4>
                                 <p class="small opacity-75 mt-2">
                                     Akses terpadu untuk Pimpinan, Apoteker, dan Kasir dalam satu platform.
                                 </p>
                             </div>
 
-                            <div class="p-3 rounded-3" style="background-color: rgba(250, 255, 202, 0.12); border: 1px solid #B9D4AA;">
-                                <small class="d-block fw-bold text-apotek-cream mb-1">Akun Demo Praktikum:</small>
-                                <small class="d-block">• pimpinan@apotek.com</small>
-                                <small class="d-block">• apoteker@apotek.com</small>
-                                <small class="d-block">• kasir@apotek.com</small>
-                                <small class="d-block mt-1 text-apotek-cream">Pass: <strong>12345678</strong></small>
-                            </div>
                         </div>
 
                         <div class="col-md-7 bg-white p-4 p-md-5">
